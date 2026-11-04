@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FleetFlow | Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">F</span>
+                <h2>FleetFlow</h2>
+            </div>
+
+            <nav class="navigation">
+                <a href="/" class="nav-link active">Dashboard</a>
+                <a href="#vehicles" class="nav-link">Vehicles</a>
+                <a href="#customers" class="nav-link">Customers</a>
+                <a href="#bookings" class="nav-link">Bookings</a>
+                <a href="#payments" class="nav-link">Payments</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>Fleet Management System</p>
+                <span>Version 1.0</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's your fleet overview.</p>
+                </div>
+
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <!-- Statistics -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Vehicles</p>
+                    <h2 id="totalVehicles">--</h2>
+                    <span>Registered vehicles</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Customers</p>
+                    <h2 id="totalCustomers">--</h2>
+                    <span>Registered customers</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Bookings</p>
+                    <h2 id="totalBookings">--</h2>
+                    <span>All bookings</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Payments</p>
+                    <h2 id="totalPayments">--</h2>
+                    <span>Payment records</span>
+                </div>
+
+            </section>
+
+            <!-- Recent Vehicles -->
+            <section class="content-section" id="vehicles">
+                <div class="section-heading">
+                    <div>
+                        <h2>Vehicle Management</h2>
+                        <p>Recently registered vehicles</p>
+                    </div>
+
+                    <button class="primary-button"
+                        onclick="loadVehicles()">Refresh Vehicles</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Vehicle</th>
+                                <th>Brand</th>
+                                <th>Registration</th>
+                                <th>Price / Day</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="vehicleTable">
+                            <tr>
+                                <td colspan="6">Loading vehicles...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Recent Bookings -->
+            <section class="content-section" id="bookings">
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent Bookings</h2>
+                        <p>Latest rental bookings</p>
+                    </div>
+
+                    <button class="primary-button"
+                        onclick="loadBookings()">Refresh Bookings</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Vehicle</th>
+                                <th>Total Days</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="bookingTable">
+                            <tr>
+                                <td colspan="6">Loading bookings...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script th:src="@{/js/dashboard.js}"></script>
+</body>
+</html>

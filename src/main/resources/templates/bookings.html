@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings | FleetFlow</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bookings.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>FleetFlow</h2>
+
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/customers">Customers</a>
+        <a href="/bookings" class="active">Bookings</a>
+        <a href="/payments">Payments</a>
+    </nav>
+</div>
+
+<main class="booking-main">
+
+    <header class="booking-header">
+        <div>
+            <h1>Booking Management</h1>
+            <p>Create and manage vehicle rental bookings</p>
+        </div>
+    </header>
+
+    <section class="booking-stats">
+        <div class="booking-stat-card">
+            <span>Total Bookings</span>
+            <h2 id="totalBookings">0</h2>
+        </div>
+
+        <div class="booking-stat-card">
+            <span>Confirmed</span>
+            <h2 id="confirmedBookings">0</h2>
+        </div>
+
+        <div class="booking-stat-card">
+            <span>Cancelled</span>
+            <h2 id="cancelledBookings">0</h2>
+        </div>
+    </section>
+
+    <section class="booking-form-card">
+        <h2>Create New Booking</h2>
+
+        <form id="bookingForm">
+
+            <div class="booking-form-grid">
+
+                <div class="form-group">
+                    <label for="customerId">Select Customer</label>
+                    <select id="customerId" required>
+                        <option value="">Loading customers...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleId">Select Vehicle</label>
+                    <select id="vehicleId" required>
+                        <option value="">Loading vehicles...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pickupDate">Pickup Date</label>
+                    <input type="date" id="pickupDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="returnDate">Return Date</label>
+                    <input type="date" id="returnDate" required>
+                </div>
+
+            </div>
+
+            <div class="booking-estimate">
+                <div>
+                    <span>Rental Days</span>
+                    <h3 id="totalDays">0</h3>
+                </div>
+
+                <div>
+                    <span>Estimated Total</span>
+                    <h3 id="totalPrice">₹0</h3>
+                </div>
+            </div>
+
+            <button type="submit" id="createBookingBtn">
+                Create Booking
+            </button>
+
+            <p id="bookingMessage"></p>
+
+        </form>
+    </section>
+
+    <section class="booking-table-card">
+
+        <div class="booking-table-header">
+            <h2>Booking History</h2>
+
+            <input type="text" id="searchBooking"
+                   placeholder="Search bookings...">
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Customer</th>
+                        <th>Vehicle</th>
+                        <th>Pickup Date</th>
+                        <th>Return Date</th>
+                        <th>Days</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="bookingTableBody">
+                    <tr>
+                        <td colspan="9">Loading bookings...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/js/bookings.js"></script>
+
+</body>
+</html>

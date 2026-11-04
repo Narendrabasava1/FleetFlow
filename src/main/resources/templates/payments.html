@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments | FleetFlow</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/payments.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>FleetFlow</h2>
+
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/customers">Customers</a>
+        <a href="/bookings">Bookings</a>
+        <a href="/payments" class="active">Payments</a>
+    </nav>
+</div>
+
+<main class="payment-main">
+
+    <header class="payment-header">
+        <div>
+            <h1>Payment Management</h1>
+            <p>Manage rental payments and payment status</p>
+        </div>
+    </header>
+
+    <section class="payment-stats">
+        <div class="payment-stat-card">
+            <span>Total Payments</span>
+            <h2 id="totalPayments">0</h2>
+        </div>
+
+        <div class="payment-stat-card">
+            <span>Successful Payments</span>
+            <h2 id="successfulPayments">0</h2>
+        </div>
+
+        <div class="payment-stat-card">
+            <span>Pending Payments</span>
+            <h2 id="pendingPayments">0</h2>
+        </div>
+
+        <div class="payment-stat-card">
+            <span>Total Revenue</span>
+            <h2 id="totalRevenue">₹0</h2>
+        </div>
+    </section>
+
+    <section class="payment-form-card">
+        <h2>Create New Payment</h2>
+
+        <form id="paymentForm">
+
+            <div class="payment-form-grid">
+
+                <div class="form-group">
+                    <label for="bookingId">Select Booking</label>
+                    <select id="bookingId" required>
+                        <option value="">Loading bookings...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentAmount">Booking Amount</label>
+                    <input type="text" id="paymentAmount"
+                           placeholder="Select a booking" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" required>
+                        <option value="">Select method</option>
+                        <option value="CASH">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="CARD">Card</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit" id="createPaymentBtn">
+                Create Payment
+            </button>
+
+            <p id="paymentMessage"></p>
+
+        </form>
+    </section>
+
+    <section class="payment-table-card">
+
+        <div class="payment-table-header">
+            <h2>Payment History</h2>
+
+            <input type="text" id="searchPayment"
+                   placeholder="Search by payment or booking ID">
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Booking ID</th>
+                        <th>Amount</th>
+                        <th>Method</th>
+                        <th>Payment Date</th>
+                        <th>Status</th>
+                        <th>Update Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="paymentTableBody">
+                    <tr>
+                        <td colspan="7">Loading payments...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/js/payments.js"></script>
+
+</body>
+</html>

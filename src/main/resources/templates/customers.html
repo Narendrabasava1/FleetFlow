@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers | FleetFlow</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/customers.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>FleetFlow</h2>
+
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/customers" class="active">Customers</a>
+        <a href="/bookings">Bookings</a>
+        <a href="/payments">Payments</a>
+    </nav>
+</div>
+
+<main class="customer-main">
+
+    <header class="customer-header">
+        <div>
+            <h1>Customer Management</h1>
+            <p>Manage your vehicle rental customers</p>
+        </div>
+    </header>
+
+    <section class="customer-stats">
+        <div class="customer-stat-card">
+            <span>Total Customers</span>
+            <h2 id="totalCustomers">0</h2>
+        </div>
+    </section>
+
+    <section class="customer-content">
+
+        <div class="customer-form-card">
+            <h2 id="formTitle">Add New Customer</h2>
+
+            <form id="customerForm">
+
+                <input type="hidden" id="customerId">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName"
+                           placeholder="Enter full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email"
+                           placeholder="Enter email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" id="phone"
+                           placeholder="Enter phone number">
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id="address"
+                              placeholder="Enter address"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" id="submitBtn">Add Customer</button>
+                    <button type="button" id="cancelBtn"
+                            class="cancel-btn" hidden>Cancel</button>
+                </div>
+
+                <p id="customerMessage"></p>
+            </form>
+        </div>
+
+        <div class="customer-table-card">
+            <div class="table-header">
+                <h2>Customer List</h2>
+                <input type="text" id="searchCustomer"
+                       placeholder="Search customers...">
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="customerTableBody">
+                        <tr>
+                            <td colspan="6">Loading customers...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/js/customers.js"></script>
+</body>
+</html>
