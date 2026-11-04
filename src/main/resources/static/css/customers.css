@@ -1,9 +1,11 @@
 
 /* Customer Main Layout */
 .customer-main {
-      margin-left: 250px;
-    padding: 30px;
+    flex: 1;
+    min-width: 0;
+    padding: 35px;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Customer Header */
@@ -201,9 +203,8 @@
 
 /* Mobile Layout */
 @media (max-width: 700px) {
+
     .customer-main {
-        width: 100%;
-        margin-left: 0;
         padding: 18px;
     }
 
