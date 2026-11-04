@@ -1,12 +1,9 @@
 
 /* Customer Main Layout */
 .customer-main {
-    width: calc(100% - 240px);
-    margin-left: 240px;
-    padding: 35px;
+      margin-left: 250px;
+    padding: 30px;
     min-height: 100vh;
-    box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 /* Customer Header */
